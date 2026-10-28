@@ -35,6 +35,17 @@ class DatabaseService{
         notes TEXT
         )'''
     );
+    await db.execute('''
+    CREATE TABLE urine_readings (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      timestamp TEXT NOT NULL,
+      volume_ml INTEGER NOT NULL,
+      pain_level INTEGER NOT NULL,
+      symptoms TEXT,
+      notes TEXT
+      )
+      '''
+    );
   }
 
   //CRUD OPERATIONS
