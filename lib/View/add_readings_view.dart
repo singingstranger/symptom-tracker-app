@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Domain models/bp_reading_model.dart';
-import '../ViewModel/bp_view_model.dart';
+import '../ViewModel/health_view_model.dart';
 import 'ocr_scan_view.dart'; // Added missing import for the camera scan view
 
 class AddReadingsView extends StatefulWidget {
@@ -91,7 +91,7 @@ class _AddReadingsViewState extends State<AddReadingsView> {
                   symptomSeverity: symptomSeverity,
                   notes: _notesController.text.isEmpty ? null : _notesController.text,
                 );
-                await context.read<BPViewModel>().addReading(newReading);
+                await context.read<HealthViewModel>().addBpReading(newReading);
                 if (mounted) Navigator.pop(context);
               },
               child: const Text("Save Reading", style: TextStyle(fontSize: 18)),

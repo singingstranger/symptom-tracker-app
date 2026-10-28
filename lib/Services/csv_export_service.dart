@@ -6,7 +6,7 @@ import '../Domain models/bp_reading_model.dart';
 import '../Domain models/urine_reading_model.dart'; // Added missing import
 
 class CSVExportService {
-  static Future<void> exportAndShareReadings(List<BPReading> readings) async {
+  static Future<void> exportAndShareBpReadings(List<BPReading> readings) async {
     List<List<dynamic>> rows = [
       ['ID', 'Timestamp', 'Systolic', 'Diastolic', 'Pulse', 'Symptom Severity', 'Notes']
     ];

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../ViewModel/bp_view_model.dart';
+import '../ViewModel/health_view_model.dart';
 import '../ViewModel/blood_pressure_chart.dart';
 import 'add_readings_view.dart';
 
@@ -16,7 +16,7 @@ class _DashboardViewState extends State<DashboardView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<BPViewModel>().loadReadings();
+      context.read<HealthViewModel>().loadBpReadings();
     });
   }
 
@@ -29,17 +29,17 @@ class _DashboardViewState extends State<DashboardView> {
           IconButton(
             icon: const Icon(Icons.ios_share),
             tooltip: 'Export CSV',
-            onPressed: () => context.read<BPViewModel>().exportCSV(),
+            onPressed: () => context.read<HealthViewModel>().exportBpCSV(),
           ),
         ],
       ),
-      body: Consumer<BPViewModel>(
+      body: Consumer<HealthViewModel>(
         builder: (context, viewModel, child) {
           if (viewModel.isLoading) {
             return const Center(child: CircularProgressIndicator());
           }
 
-          if (viewModel.readings.isEmpty) {
+          if (viewModel.bpReadings.isEmpty) {
             return const Center(
               child: Text('No readings recorded yet. Tap + to add one!'),
             );
@@ -56,7 +56,7 @@ class _DashboardViewState extends State<DashboardView> {
                     children: [
                       const Text('Blood Pressure Trend', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       const SizedBox(height: 12),
-                      BloodPressureChart(readings: viewModel.readings),
+                      BloodPressureChart(readings: viewModel.bpReadings),
                     ],
                   ),
                 ),

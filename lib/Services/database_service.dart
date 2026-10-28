@@ -23,6 +23,23 @@ class DatabaseService{
       onCreate: _createDB,
     );
   }
+
+  Future<int> insertUrineReading(Map<String, dynamic> row) async {
+    final db = await database;
+    return await db.insert('urine_readings', row);
+  }
+
+  Future<List<Map<String, dynamic>>> getAllUrineReadings() async {
+    final db = await database;
+    return await db.query('urine_readings', orderBy: 'timestamp DESC');
+  }
+
+  Future<int> deleteUrineReading(int id) async {
+    final db = await database;
+    return await db.delete('urine_readings', where: 'id = ?', whereArgs: [id]);
+  }
+
+
   Future<void> _createDB(Database db, int version) async {
     await db.execute(
       '''CREATE TABLE readings(

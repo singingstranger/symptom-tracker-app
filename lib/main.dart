@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'ViewModel/bp_view_model.dart';
+import 'ViewModel/health_view_model.dart';
 import 'View/dashboard_view.dart';
 
 void main() async {
@@ -9,7 +9,7 @@ void main() async {
 
   runApp(
     ChangeNotifierProvider(
-      create: (context) => BPViewModel(),
+      create: (context) => HealthViewModel(),
       child: const Tracker(),
     ),
   );
