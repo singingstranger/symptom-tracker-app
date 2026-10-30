@@ -42,7 +42,7 @@ class BloodPressureChart extends StatelessWidget {
               drawVerticalLine: true,
               horizontalInterval: 20,
               getDrawingHorizontalLine: (value) => FlLine(
-                color: Colors.grey.withOpacity(0.2),
+                color: Colors.grey.withValues(alpha: 0.2),
                 strokeWidth: 1,
               ),
             ),
@@ -87,7 +87,7 @@ class BloodPressureChart extends StatelessWidget {
             ),
             borderData: FlBorderData(
               show: true,
-              border: Border.all(color: Colors.grey.withOpacity(0.3)),
+              border: Border.all(color: Colors.grey.withValues(alpha: 0.3)),
             ),
             minY: 40,   // Minimum diastolic range
             maxY: 200,  // Maximum systolic range
@@ -106,7 +106,7 @@ class BloodPressureChart extends StatelessWidget {
                 dotData: const FlDotData(show: true),
                 belowBarData: BarAreaData(
                   show: true,
-                  color: Colors.redAccent.withOpacity(0.1),
+                  color: Colors.redAccent.withValues(alpha: 0.1),
                 ),
               ),
 
@@ -122,7 +122,7 @@ class BloodPressureChart extends StatelessWidget {
                 dotData: const FlDotData(show: true),
                 belowBarData: BarAreaData(
                   show: true,
-                  color: Colors.blueAccent.withOpacity(0.1),
+                  color: Colors.blueAccent.withValues(alpha: 0.1),
                 ),
               ),
             ],
@@ -132,7 +132,7 @@ class BloodPressureChart extends StatelessWidget {
               horizontalLines: [
                 HorizontalLine(
                   y: 120,
-                  color: Colors.green.withOpacity(0.5),
+                  color: Colors.green.withValues(alpha: 0.5),
                   strokeWidth: 1.5,
                   dashArray: [5, 5],
                   label: HorizontalLineLabel(
